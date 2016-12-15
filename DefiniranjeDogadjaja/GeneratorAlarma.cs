@@ -39,8 +39,7 @@ namespace Vsite.CSharp
         protected virtual void OnAlarm(AlarmEventArgs e)
         {
             // ako ima registriranih interesenata za poruku, pošalji
-            if (Alarm != null)
-                Alarm(this, e);
+            Alarm?.Invoke(this, e);
         }
 
         // metoda koja aktivira alarm (tj. inicijalizira događaj tipa Alarm)
