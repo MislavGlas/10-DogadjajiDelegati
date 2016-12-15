@@ -40,7 +40,7 @@ namespace BlokiranjeGlavneNiti
 
 
 
-        // TODO: Pokrenuti kod i provjeriti odziv forme nakon pritiska tipke Block
+        // Pokrenuti kod i provjeriti odziv forme nakon pritiska tipke Block
 
 
     }
