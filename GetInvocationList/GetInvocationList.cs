@@ -11,6 +11,11 @@ namespace Vsite.CSharp
     {
         public delegate double Funkcija(double x);
 
+        static double Kvadrat(double x)
+        {
+            return x * x;
+        }
+
         static void IspišiFunkciju(Funkcija fja, double x1, double x2, int n)
         {
             Console.WriteLine("Ispis funkcije {0}:", fja.Method);
@@ -24,13 +29,15 @@ namespace Vsite.CSharp
 
         public static void IspišiFunkcijeZasebno(Funkcija fja, double x1, double x2, int n)
         {
-            // TODO: Pomoću metode GetInvocationList dohvatiti sve delegatske funkcije zasebno i za svaku ispisati vrijednosti u traženom intervalu
-
+            // Pomoću metode GetInvocationList dohvatiti sve delegatske funkcije zasebno i za svaku ispisati vrijednosti u traženom intervalu
+            foreach (Funkcija f in fja.GetInvocationList())
+                IspišiFunkciju(f, x1, x2, n);
         }
 
         static void Main(string[] args)
         {
             Funkcija f = Math.Cos;
+            f += Kvadrat;
             f += Math.Sin;
 
             Console.WriteLine("*** IspišiFunkciju ***");
